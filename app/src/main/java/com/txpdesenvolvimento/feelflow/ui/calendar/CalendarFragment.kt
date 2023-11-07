@@ -37,7 +37,7 @@ class CalendarFragment : Fragment() {
         for (i in 0 until  12 step 1){
             val row = TableRow(root.context)
 
-            val v1 = layoutInflater.inflate(R.layout.fragment_year_in_pixel_day, null)
+            /*val v1 = layoutInflater.inflate(R.layout.fragment_year_in_pixel_day, null)
             val v2 = layoutInflater.inflate(R.layout.fragment_year_in_pixel_day, null)
             val v3 = layoutInflater.inflate(R.layout.fragment_year_in_pixel_day, null)
             val v4 = layoutInflater.inflate(R.layout.fragment_year_in_pixel_day, null)
@@ -45,8 +45,10 @@ class CalendarFragment : Fragment() {
             row.addView(v1)
             row.addView(v2)
             row.addView(v3)
-            row.addView(v4)
+            row.addView(v4)*/
 
+            val cal = layoutInflater.inflate(R.layout.fragment_calendar_month, null)
+            row.addView(cal)
             table.addView(row)
         }
 

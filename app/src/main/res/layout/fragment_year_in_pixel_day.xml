@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".year_in_pixel_fragment">
+    tools:context=".ui.fragment.year_in_pixel_fragment">
 
     <Button
         android:id="@+id/btn_day"
