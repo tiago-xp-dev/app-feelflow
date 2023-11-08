@@ -15,4 +15,17 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="empty" />
+    <string name="month_default">Mês</string>
+    <string name="month_name_january">Janeiro</string>
+    <string name="month_name_february">Fevereiro</string>
+    <string name="month_name_march">Março</string>
+    <string name="month_name_april">Abril\n</string>
+    <string name="month_name_may">Maio</string>
+    <string name="month_name_june">Junho</string>
+    <string name="month_name_july">Julho</string>
+    <string name="month_name_august">Agosto</string>
+    <string name="month_name_september">Setembro</string>
+    <string name="month_name_october">Outubro</string>
+    <string name="month_name_november">Novembro</string>
+    <string name="month_name_december">Dezembro</string>
 </resources>

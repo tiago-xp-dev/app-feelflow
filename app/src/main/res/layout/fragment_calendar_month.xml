@@ -5,23 +5,25 @@
     android:layout_width="400dp"
     android:layout_height="400dp"
     android:background="@drawable/border_left_right"
-    tools:context=".ui.fragment.calendar_month">
+    android:minHeight="400dp"
+    tools:context=".ui.fragment.CalendarMonthFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/txtVMonthName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="TextView"
+            android:text="@string/month_default"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TableLayout
+            android:id="@+id/tbLWeeks"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
@@ -31,7 +33,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3">
+            app:layout_constraintTop_toBottomOf="@+id/txtVMonthName">
 
         </TableLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
