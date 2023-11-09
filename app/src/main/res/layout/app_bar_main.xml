@@ -18,10 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        app:navigationIcon="@drawable/menu"
-        app:popupTheme="@style/Theme.FeelFlow.PopupOverlay"
-        app:subtitleTextColor="@android:color/secondary_text_dark"
-        app:titleTextColor="@android:color/primary_text_dark" />
+        android:theme="@style/Theme.FeelFlow.Toolbar"/>
 
     <include
         android:id="@+id/content"
