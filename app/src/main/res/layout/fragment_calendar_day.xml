@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragment.year_in_pixel_fragment">
+    android:layout_width="32dp"
+    android:layout_height="32dp"
+    tools:context=".ui.fragment.CalendarDayFragment">
 
     <Button
         android:id="@+id/btn_day"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/transparent"
         android:insetTop="0dp"
         android:insetBottom="0dp"
         android:text="@string/empty"
-        app:cornerRadius="0dp"
+        app:cornerRadius="4dp"
         app:iconPadding="0dp"
-        app:strokeColor="@color/teal_200"
-        app:strokeWidth="4dp"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:strokeColor="@color/grey_50_opacity"
+        app:strokeWidth="2dp"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 </RelativeLayout>

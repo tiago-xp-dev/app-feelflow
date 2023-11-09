@@ -1,6 +1,5 @@
-package com.txpdesenvolvimento.feelflow.services.calendar
+package com.txpdesenvolvimento.feelflow.models
 
-import com.txpdesenvolvimento.feelflow.services.entries.Entry
 import java.util.Calendar
 
 class Day {

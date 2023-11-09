@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".calendar_day_empty">
+    tools:context=".ui.fragment.CalendarDayEmptyFragment">
 
     <View
         android:id="@+id/view"

@@ -32,12 +32,8 @@ class CalendarFragment : Fragment() {
     ): View {
         val fragmentManager = childFragmentManager
 
-        val viewModel = ViewModelProvider(this).get(CalendarViewModel::class.java)
-
         _binding = FragmentCalendarBinding.inflate(inflater, container, false)
         val root : View = binding.root
-
-        val linearLayout = binding.container
 
         for (i in 0 until 12){
             var fBundle = Bundle()
