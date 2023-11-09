@@ -24,7 +24,6 @@ class CalendarMonthFragment : Fragment() {
         fun newInstance() = CalendarMonthFragment()
     }
 
-    private lateinit var viewModel: CalendarMonthViewModel
     private lateinit var tableRows: List<TableRow>
 
     private var _binding: FragmentCalendarMonthBinding? = null
@@ -68,9 +67,11 @@ class CalendarMonthFragment : Fragment() {
         for (count in 1 ..  (countDays+offsetFirstWeek)-1){
 
             if(count < offsetFirstWeek){
-                createDayFrag(DayType.EMPTY, row!!.id)
+                createDayFrag(DayType.EMPTY, row.id)
             }else{
-                createDayFrag(DayType.DAY, row!!.id)
+                var dayBundle = Bundle()
+                dayBundle.putInt("day", (count-offsetFirstWeek)+1)
+                createDayFrag(DayType.DAY, row.id, dayBundle)
             }
 
             if(count % 7 == 0){
@@ -95,10 +96,11 @@ class CalendarMonthFragment : Fragment() {
         return binding.root
     }
 
-    private fun createDayFrag(type: DayType, containerId: Int){
+    private fun createDayFrag(type: DayType, containerId: Int, bundle: Bundle? = null){
         if(type == DayType.DAY){
             val fragmentTransaction = childFragmentManager.beginTransaction()
             val fragment = CalendarDayFragment()
+            fragment.arguments = bundle
             fragmentTransaction.add(containerId, fragment)
             fragmentTransaction.commit()
         }else{

@@ -28,4 +28,6 @@
     <string name="month_name_october">Outubro</string>
     <string name="month_name_november">Novembro</string>
     <string name="month_name_december">Dezembro</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
