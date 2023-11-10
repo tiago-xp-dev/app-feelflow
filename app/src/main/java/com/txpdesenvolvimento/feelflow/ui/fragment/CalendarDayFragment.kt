@@ -16,26 +16,27 @@ class CalendarDayFragment : Fragment() {
     private var _binding: FragmentCalendarDayBinding? = null
     private val binding get() = _binding!!
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        _binding = FragmentCalendarDayBinding.inflate(inflater, container, false)
+        //_binding = FragmentCalendarDayBinding.inflate(inflater, container, false)
+        return inflater.inflate(R.layout.fragment_calendar_day, container, false)
 
-        val buttonDay : Button = binding.btnDay
+        /*val buttonDay : Button = binding.btnDay
         val dayNumber = arguments?.getInt("day")
         buttonDay.text = dayNumber.toString()
 
         buttonDay.setOnClickListener {
 
-        }
+        }*/
 
-        return binding.root
+        //return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

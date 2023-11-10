@@ -25,32 +25,39 @@ class CalendarFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(null)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val fragmentManager = childFragmentManager
 
         _binding = FragmentCalendarBinding.inflate(inflater, container, false)
         val root : View = binding.root
 
-        for (i in 0 until 12){
-            var fBundle = Bundle()
-            fBundle.putInt("year", 2023)
-            fBundle.putInt("month", i)
+        if(childFragmentManager.fragments.isEmpty()){
+            for (i in 0 until 12){
+                var fBundle = Bundle()
+                fBundle.putInt("year", 2023)
+                fBundle.putInt("month", i)
 
-            val fragmentTransaction = fragmentManager.beginTransaction()
-            val fragment = CalendarMonthFragment()
-            fragment.arguments = fBundle
+                val fragmentTransaction = childFragmentManager.beginTransaction()
+                val fragment = CalendarMonthFragment()
+                fragment.arguments = fBundle
 
-            fragmentTransaction.add(R.id.container, fragment)
-            fragmentTransaction.commit()
-
-            //val cal = layoutInflater.inflate(R.layout.fragment_calendar_month, null)
-            //linearLayout.addView(cal)
+                fragmentTransaction.add(R.id.container, fragment)
+                fragmentTransaction.commit()
+            }
         }
-
         return root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        _binding = null
     }
 }

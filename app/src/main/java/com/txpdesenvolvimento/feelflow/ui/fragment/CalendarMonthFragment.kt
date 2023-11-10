@@ -1,22 +1,23 @@
 package com.txpdesenvolvimento.feelflow.ui.fragment
 
+import android.os.Build
 import android.os.Bundle
-import android.os.Debug
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import android.widget.RelativeLayout.LayoutParams
 import android.widget.TableLayout
 import android.widget.TableRow
+import android.widget.TextView
+import androidx.annotation.RequiresApi
+import androidx.core.view.contains
 import com.txpdesenvolvimento.feelflow.R
 import com.txpdesenvolvimento.feelflow.databinding.FragmentCalendarDayBinding
 import com.txpdesenvolvimento.feelflow.databinding.FragmentCalendarMonthBinding
 import com.txpdesenvolvimento.feelflow.utils.MonthNameUtils
 import java.util.Calendar
+import kotlin.math.roundToInt
 
 class CalendarMonthFragment : Fragment() {
 
@@ -24,8 +25,7 @@ class CalendarMonthFragment : Fragment() {
         fun newInstance() = CalendarMonthFragment()
     }
 
-    private lateinit var tableRows: List<TableRow>
-
+    private var tableRowIds: ArrayList<Int> = arrayListOf()
     private var _binding: FragmentCalendarMonthBinding? = null
     private val binding get() = _binding!!
 
@@ -34,14 +34,13 @@ class CalendarMonthFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCalendarMonthBinding.inflate(inflater, container, false)
-        val fragmentManager = childFragmentManager
-
-        tableRows = listOf()
 
         val bundle = requireArguments()
 
-        val tableWidth = binding.root.findViewById<TableLayout>(R.id.tbLWeeks).measuredWidth - (resources.getDimension(R.dimen.calendar_day_margin) * 6)
-        val dayDimension = 42 //tableWidth / 7
+        val savedRowIds = savedInstanceState?.getIntegerArrayList("tableRowIds")
+        if(savedRowIds != null){
+            tableRowIds = savedRowIds
+        }
 
         val year = bundle.getInt("year")
         val month = bundle.getInt("month")
@@ -63,8 +62,9 @@ class CalendarMonthFragment : Fragment() {
         tableCalendar.dividerDrawable = context?.getDrawable(R.drawable.calendar_vertical_divider)
         tableCalendar.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE)
 
-        var row : TableRow = createRow(tableCalendar)
-        for (count in 1 ..  (countDays+offsetFirstWeek)-1){
+        if(tableRowIds.isEmpty()){
+            var row: TableRow = createRow(tableCalendar)
+            for (count in 1..(countDays+offsetFirstWeek)-1){
 
             if(count < offsetFirstWeek){
                 createDayFrag(DayType.EMPTY, row.id)
@@ -74,14 +74,19 @@ class CalendarMonthFragment : Fragment() {
                 createDayFrag(DayType.DAY, row.id, dayBundle)
             }
 
-            if(count % 7 == 0){
-                row = createRow(tableCalendar)
+                if (count % 7 == 0) {
+                    row = createRow(tableCalendar)
+                }
+            }
+        }else{
+            tableRowIds.forEach {
+                createRow(tableCalendar, it)
             }
         }
 
         binding.root.post(Runnable {
             val tableWidth = binding.root.findViewById<TableLayout>(R.id.tbLWeeks).measuredWidth - (resources.getDimension(R.dimen.calendar_day_margin) * 6)
-            val dayDimension = Math.round(tableWidth / 7)
+            val dayDimension = (tableWidth / 7).roundToInt()
 
             childFragmentManager.fragments.forEach{
                 var params = it.view?.layoutParams
@@ -94,6 +99,26 @@ class CalendarMonthFragment : Fragment() {
         })
 
         return binding.root
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putIntegerArrayList("tableRowIds", tableRowIds)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        tableRowIds.forEach {
+            if(binding.tbLWeeks.findViewById<TableRow>(it) == null) {
+                createRow(binding.tbLWeeks, it)
+            }
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun createDayFrag(type: DayType, containerId: Int, bundle: Bundle? = null){
@@ -111,14 +136,18 @@ class CalendarMonthFragment : Fragment() {
         }
     }
 
-    private fun createRow(table: TableLayout): TableRow{
+    private fun createRow(table: TableLayout, id : Int = View.generateViewId()): TableRow{
         var row = TableRow(context)
 
-        row.id = View.generateViewId()
+        row.id = id
         row.dividerDrawable = context?.getDrawable(R.drawable.calendar_vertical_divider)
         row.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE)
+
         table.addView(row)
 
+        if(!tableRowIds.contains(id)) {
+            tableRowIds.add(id)
+        }
         return row
     }
     enum class DayType{
