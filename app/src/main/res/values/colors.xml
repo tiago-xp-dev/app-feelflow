@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="black_20_opacity">#33000000</color>
     <color name="grey_50_opacity">#80969696</color>
+    <color name="grey_80_opacity">#CC969696</color>
     <color name="transparent">#00000000</color>
     <color name="primary_black">#181818</color>
     <color name="black_60_opacity">#99000000</color>
@@ -18,4 +19,11 @@
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
     <color name="secondary_black">#49454F</color>
+    <color name="rating_good">#33B5B9</color>
+    <color name="rating_awesome">#28742F</color>
+    <color name="rating_neutral">#3F7DDA</color>
+    <color name="rating_bad">#C47BDF</color>
+    <color name="rating_awful">#9D43C7</color>
+    <color name="button_primary">#D0BCFF</color>
+    <color name="card_background">#49454F</color>
 </resources>

@@ -28,7 +28,7 @@
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
-        android:id="@+id/entryOverview"
+        android:id="@+id/nav_entry_overview"
         android:name="com.txpdesenvolvimento.feelflow.ui.entry.EntryOverview"
         android:label="fragment_entry_overview"
         tools:layout="@layout/fragment_entry_overview" />

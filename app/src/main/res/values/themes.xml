@@ -35,4 +35,10 @@
         <item name="color">@android:color/white</item>
     </style>
 
+    <style name="Theme.FeelFlow.imageViewRightRounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">8dp</item>
+        <item name="cornerSizeBottomRight">8dp</item>
+    </style>
+
 </resources>

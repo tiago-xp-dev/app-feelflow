@@ -12,6 +12,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.txpdesenvolvimento.feelflow.databinding.ActivityMainBinding
+import com.txpdesenvolvimento.feelflow.utils.NavControllerSingleton
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,24 +26,26 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.appBarMain.toolbar)
-        val backgroundVideo : VideoView = binding.appBarMain.content.videoView
-
-        backgroundVideo.setVideoPath("android.resource://"+packageName+"/"+R.raw.backgroun_video)
-        backgroundVideo.start()
-
-        backgroundVideo.setOnPreparedListener {
-            it.isLooping = true
-        }
-
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_calendar, R.id.nav_year_in_pixels), drawerLayout)
+                R.id.nav_home, R.id.nav_calendar, R.id.nav_year_in_pixels), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        NavControllerSingleton(navController)
+
+        // Background video.
+        val backgroundVideo : VideoView = binding.appBarMain.content.videoView
+        backgroundVideo.setVideoPath("android.resource://"+packageName+"/"+R.raw.backgroun_video)
+        backgroundVideo.start()
+        backgroundVideo.setOnPreparedListener {
+            it.isLooping = true
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

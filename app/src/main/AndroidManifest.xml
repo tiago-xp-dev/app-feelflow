@@ -6,12 +6,21 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/icon"
+        android:icon="@drawable/ic_feelflow_icon"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/icon"
+        android:roundIcon="@drawable/ic_feelflow_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.FeelFlow"
         tools:targetApi="31">
+        <activity
+            android:name=".CalendarDayEmpty"
+            android:exported="false" />
+        <activity
+            android:name=".CalendarDay"
+            android:exported="false" />
+        <activity
+            android:name=".CalendarMonth"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
