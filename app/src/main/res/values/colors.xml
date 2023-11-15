@@ -26,4 +26,5 @@
     <color name="rating_awful">#9D43C7</color>
     <color name="button_primary">#D0BCFF</color>
     <color name="card_background">#49454F</color>
+    <color name="button_red">#EF5350</color>
 </resources>

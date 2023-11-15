@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.txpdesenvolvimento.feelflow.R
 import com.txpdesenvolvimento.feelflow.databinding.FragmentCalendarBinding
 import com.txpdesenvolvimento.feelflow.models.Month
 import com.txpdesenvolvimento.feelflow.adapters.MonthAdapter
+import com.txpdesenvolvimento.feelflow.utils.JWTTokenUtils
+import com.txpdesenvolvimento.feelflow.utils.NavControllerSingleton
 
 class CalendarFragment : Fragment() {
 
@@ -21,6 +24,9 @@ class CalendarFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(null)
+
+        Toast.makeText(context, JWTTokenUtils(requireContext()).retrieveToken(), Toast.LENGTH_LONG).show()
+        NavControllerSingleton.getInstance().clearBackStack(R.id.nav_sign_in)
     }
 
     override fun onCreateView(
@@ -38,7 +44,7 @@ class CalendarFragment : Fragment() {
         val months = arrayListOf<Month>()
         if(childFragmentManager.fragments.isEmpty()){
             for (i in 0 until 12){
-                months.add(Month(2023,i, arrayListOf()))
+                months.add(Month(2022,i, arrayListOf()))
             }
         }
 

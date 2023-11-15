@@ -19,6 +19,7 @@
         app:navGraph="@navigation/mobile_navigation" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_video"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
@@ -29,9 +30,10 @@
             android:id="@+id/videoView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_gravity="center" />
+            app:layout_constraintStart_toStartOf="parent" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"

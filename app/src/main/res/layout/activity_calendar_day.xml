@@ -9,14 +9,13 @@
     android:background="@drawable/background_day_body"
     android:maxWidth="320dp"
     android:maxHeight="320dp"
-    tools:context=".ui.fragment.CalendarDayFragment">
+    tools:context=".CalendarDay">
 
     <View
         android:id="@+id/viewBackground"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="1:1"
-        android:background="@drawable/background_day"
         android:maxWidth="320dp"
         android:maxHeight="320dp"
         android:visibility="invisible"

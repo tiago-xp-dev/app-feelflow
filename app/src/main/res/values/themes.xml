@@ -41,4 +41,7 @@
         <item name="cornerSizeBottomRight">8dp</item>
     </style>
 
+    <style name="Theme.FeelFlow.TextViewWithCustomColor">
+        <item name="colorControlActivated">@color/button_primary</item>
+    </style>
 </resources>

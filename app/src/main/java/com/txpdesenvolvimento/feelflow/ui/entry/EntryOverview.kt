@@ -6,8 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.txpdesenvolvimento.feelflow.R
+import com.txpdesenvolvimento.feelflow.databinding.FragmentEntryOverviewBinding
+import com.txpdesenvolvimento.feelflow.utils.NavControllerSingleton
 
 class EntryOverview : Fragment() {
+
+    private var _binding : FragmentEntryOverviewBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +23,13 @@ class EntryOverview : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_entry_overview, container, false)
+        _binding = FragmentEntryOverviewBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        binding.btnNotes.setOnClickListener {
+            NavControllerSingleton.getInstance().navigate(R.id.nav_entry_note)
+        }
+
+        return root
     }
 }

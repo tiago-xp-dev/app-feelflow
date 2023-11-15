@@ -13,6 +13,7 @@
         android:left="2dp"
         android:right="2dp">
         <shape android:shape="rectangle">
+            <solid android:color="@color/transparent"/>
             <stroke android:width="1.5dp" android:color="@color/grey_80_opacity"/>
             <corners android:radius="4dp"/>
         </shape>

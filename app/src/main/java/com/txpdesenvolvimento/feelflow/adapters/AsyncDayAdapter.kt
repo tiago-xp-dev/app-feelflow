@@ -66,17 +66,17 @@ class AsyncDayAdapter internal constructor(private val dataSet: Array<Day>) :
                     NavControllerSingleton.getInstance().navigate(R.id.nav_entry_overview)
                 }
 
-                background.visibility = VISIBLE
+                //background.visibility = VISIBLE
                 if (entries.isNotEmpty()){
                     when (entries.first().rating) {
-                        BaseEntry.Rating.AWFUL -> background.backgroundTintList = context.getColorStateList(R.color.rating_awesome)
-                        BaseEntry.Rating.BAD -> background.backgroundTintList = context.getColorStateList(R.color.rating_bad)
-                        BaseEntry.Rating.NEUTRAL -> background.backgroundTintList = context.getColorStateList(R.color.rating_neutral)
-                        BaseEntry.Rating.GOOD -> background.backgroundTintList = context.getColorStateList(R.color.rating_good)
-                        BaseEntry.Rating.AWESOME -> background.backgroundTintList = context.getColorStateList(R.color.rating_awesome)
+                        BaseEntry.Rating.AWFUL -> dayContainer.backgroundTintList = context.getColorStateList(R.color.rating_awesome)
+                        BaseEntry.Rating.BAD -> dayContainer.backgroundTintList = context.getColorStateList(R.color.rating_bad)
+                        BaseEntry.Rating.NEUTRAL -> dayContainer.backgroundTintList = context.getColorStateList(R.color.rating_neutral)
+                        BaseEntry.Rating.GOOD -> dayContainer.backgroundTintList = context.getColorStateList(R.color.rating_good)
+                        BaseEntry.Rating.AWESOME -> dayContainer.backgroundTintList = context.getColorStateList(R.color.rating_awesome)
                     }
                 }else {
-                    background.visibility = INVISIBLE
+                    //background.visibility = INVISIBLE
                 }
             }
         }

@@ -57,10 +57,13 @@ class MonthAdapter(private val dataSet: Array<Month>): RecyclerView.Adapter<Mont
                     val refDate = Calendar.getInstance()
                     refDate.set(year, month, (count - offsetFirstWeek) + 1)
 
-                    val mockRating = Random(seed = refDate.timeInMillis).nextInt(0, 4)
-                    val mockEntries = listOf(Entry(0, refDate, Rating.fromInt(mockRating)))
+                    val mockRating = Random(seed = refDate.timeInMillis).nextInt(0, 5)
+                    var mockEntries = listOf<Entry>()
+                    if(mockRating < 5) {
+                        mockEntries = listOf(Entry(0, refDate, Rating.fromInt(mockRating)))
+                    }
 
-                    days.add(Day(refDate, DAY, listOf()))
+                    days.add(Day(refDate, DAY, mockEntries))
                 }
             }
 
