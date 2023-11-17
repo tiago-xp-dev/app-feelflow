@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateEmotion">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_sign_up"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/background_card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtVTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/menu_create_emotion"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@android:color/primary_text_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edtTxt_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:backgroundTint="@color/button_primary"
+            android:ems="10"
+            android:hint="@string/field_hint_description"
+            android:inputType="text|textEmailAddress"
+            android:text="@string/empty"
+            android:textColor="@android:color/primary_text_dark"
+            android:textColorHighlight="@color/button_primary"
+            android:textColorHint="@android:color/secondary_text_dark"
+            android:textColorLink="@color/button_primary"
+            android:theme="@style/Theme.FeelFlow.TextViewWithCustomColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtVTitle"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/rS_primary_weight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/button_primary"
+            android:valueTo="10"
+            app:haloColor="@color/button_primary"
+            app:layout_constraintEnd_toEndOf="@+id/edtTxt_description"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/edtTxt_description"
+            app:layout_constraintTop_toBottomOf="@+id/edtTxt_description"
+            app:thumbColor="@color/button_primary"
+            app:thumbStrokeColor="@color/button_primary"
+            app:tickColorActive="@color/button_primary"
+            app:tickColorInactive="@color/button_primary"
+            app:trackColorActive="@color/button_primary"
+            app:trackColorInactive="@color/button_primary_disabled"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/txtF_weight_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/field_weight"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorHintInverse"
+            app:layout_constraintBottom_toTopOf="@+id/rS_primary_weight"
+            app:layout_constraintStart_toStartOf="@+id/rS_primary_weight" />
+
+
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/rS_secondary_weight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/button_primary"
+            android:valueTo="10"
+            app:haloColor="@color/button_primary"
+            app:layout_constraintEnd_toEndOf="@+id/rS_primary_weight"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/rS_primary_weight"
+            app:layout_constraintTop_toBottomOf="@+id/rS_primary_weight"
+            app:thumbColor="@color/button_primary"
+            app:thumbStrokeColor="@color/button_primary"
+            app:tickColorActive="@color/button_primary"
+            app:tickColorInactive="@color/button_primary"
+            app:trackColorActive="@color/button_primary"
+            app:trackColorInactive="@color/button_primary_disabled"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/txtF_secondary_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/field_weight"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorHintInverse"
+            app:layout_constraintBottom_toTopOf="@+id/rS_secondary_weight"
+            app:layout_constraintStart_toStartOf="@+id/rS_secondary_weight" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/divider_horizontal_16dp"
+            android:dividerPadding="16dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:showDividers="middle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rS_secondary_weight">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/holo_red_light"
+                android:text="@string/button_cancel" />
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/button_primary"
+                android:text="@string/button_create" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,10 @@
-package com.txpdesenvolvimento.feelflow.services.api.interfaces
+package com.txpdesenvolvimento.feelflow.services.api
 
 import com.txpdesenvolvimento.feelflow.models.api.requests.CreateUserRequest
 import com.txpdesenvolvimento.feelflow.models.api.requests.ValidateUserRequest
 import com.txpdesenvolvimento.feelflow.models.api.responses.ValidateUserResponse
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.GET
 import retrofit2.http.POST
 
 
